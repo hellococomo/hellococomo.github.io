@@ -111,24 +111,6 @@ class Payload {
     this.head.uid = this.uid;
   }
 }
-function copy_payload({ out, css, head: head2, uid }) {
-  const payload = new Payload();
-  payload.out = [...out];
-  payload.css = new Set(css);
-  payload.uid = uid;
-  payload.head = new HeadPayload();
-  payload.head.out = [...head2.out];
-  payload.head.css = new Set(head2.css);
-  payload.head.title = head2.title;
-  payload.head.uid = head2.uid;
-  return payload;
-}
-function assign_payload(p1, p2) {
-  p1.out = [...p2.out];
-  p1.css = p2.css;
-  p1.head = p2.head;
-  p1.uid = p2.uid;
-}
 function props_id_generator(prefix) {
   let uid = 1;
   return () => `${prefix}s${uid++}`;
@@ -185,32 +167,12 @@ function head(payload, fn) {
   fn(head_payload);
   head_payload.out.push(BLOCK_CLOSE);
 }
-function slot(payload, $$props, name, slot_props, fallback_fn) {
-  var slot_fn = $$props.$$slots?.[name];
-  if (slot_fn === true) {
-    slot_fn = $$props["children"];
-  }
-  if (slot_fn !== void 0) {
-    slot_fn(payload, slot_props);
-  }
-}
-function bind_props(props_parent, props_now) {
-  for (const key in props_now) {
-    const initial_value = props_parent[key];
-    const value = props_now[key];
-    if (initial_value === void 0 && value !== void 0 && Object.getOwnPropertyDescriptor(props_parent, key)?.set) {
-      props_parent[key] = value;
-    }
-  }
-}
 export {
   ASYNC as A,
   BOUNDARY_EFFECT as B,
   CLEAN as C,
   DERIVED as D,
   ERROR_VALUE as E,
-  copy_payload as F,
-  assign_payload as G,
   HYDRATION_ERROR as H,
   INERT as I,
   LEGACY_PROPS as L,
@@ -241,7 +203,5 @@ export {
   setContext as u,
   pop as v,
   head as w,
-  getContext as x,
-  slot as y,
-  bind_props as z
+  getContext as x
 };
