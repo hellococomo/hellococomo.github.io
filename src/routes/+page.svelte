@@ -54,6 +54,8 @@
   </svg>
 </div>
 
+
+
 <!-- <Geolocation getPosition bind:coords />
 
 <pre>{JSON.stringify(coords)}</pre> -->
