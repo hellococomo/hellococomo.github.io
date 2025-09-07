@@ -1,6 +1,6 @@
 {
-	"/": [
-		"src/routes/+layout.js",
-		"src/routes/+layout.js"
+	"/": [],
+	"/delete": [
+		"src/routes/delete/+layout.js"
 	]
 }
