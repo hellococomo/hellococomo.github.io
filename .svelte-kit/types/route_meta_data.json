@@ -1,3 +1,7 @@
 {
-	"/": []
+	"/": [],
+	"/about": [
+		"src/routes/about/+layout.js",
+		"src/routes/about/+layout.js"
+	]
 }

@@ -9,6 +9,6 @@ const config = {
 	},
 };
  
-config.paths = { base: process.argv.includes('dev') ? '' : "/hellococomo" }
+config.paths = { base: process.argv.includes('dev') ? '' : "/test" }
  
 export default config;
